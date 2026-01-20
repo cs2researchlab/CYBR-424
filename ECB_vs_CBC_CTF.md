@@ -1,14 +1,14 @@
-# 🧩 CTF Challenge: Breaking the Cipher Mode
+# CTF Challenge: Breaking the Cipher Mode
 
 ## Category
-🔐 Cryptography
+ Cryptography
 
 ## Difficulty
-🟡 Easy–Medium (Conceptual–Hands-on)
+ Easy–Medium (Conceptual–Hands-on)
 
 ---
 
-## 📜 Challenge Story
+## Challenge Story
 
 You intercepted two encrypted files from a compromised system.  
 Both files were encrypted using **AES**, but **different modes** were used.
@@ -19,7 +19,7 @@ Your mission is to identify the weak encryption mode and explain **why it is ins
 
 ---
 
-## 📁 Provided Files
+## Provided Files
 
 - `cipher1.bin`
 - `cipher2.bin`
@@ -28,7 +28,7 @@ Your mission is to identify the weak encryption mode and explain **why it is ins
 
 ---
 
-## 🎯 Objectives
+##  Objectives
 
 1. Identify **which file uses AES-ECB**
 2. Explain **why AES-ECB is insecure**
@@ -36,7 +36,7 @@ Your mission is to identify the weak encryption mode and explain **why it is ins
 
 ---
 
-## 🛠 Allowed Tools
+##  Allowed Tools
 
 - `hexdump`
 - `xxd`
@@ -46,7 +46,7 @@ Your mission is to identify the weak encryption mode and explain **why it is ins
 
 ---
 
-## 🧪 Tasks
+##  Tasks
 
 ### Task 1: Inspect the Ciphertexts
 
@@ -55,7 +55,7 @@ hexdump -C cipher1.bin | head -20
 hexdump -C cipher2.bin | head -20
 ```
 
-📌 **Question:**  
+ **Question:**  
 Which ciphertext shows visible structure or repeated blocks?
 
 ---
@@ -66,7 +66,7 @@ Determine:
 - Which file was encrypted using **AES-ECB**
 - Which file was encrypted using **AES-CBC**
 
-🧠 **Hint:**  
+ **Hint:**  
 Identical plaintext blocks encrypted with ECB produce identical ciphertext blocks.
 
 ---
@@ -80,7 +80,7 @@ Answer briefly:
 
 ---
 
-## 🚩 Flag Format
+##  Flag Format
 
 ```
 FLAG{ECB_LEAKS_PATTERNS}
@@ -88,7 +88,7 @@ FLAG{ECB_LEAKS_PATTERNS}
 
 ---
 
-## 🏁 Submission Format
+##  Submission Format
 
 ```
 ECB file: <filename>
@@ -97,13 +97,13 @@ FLAG{ECB_LEAKS_PATTERNS}
 
 ---
 
-## 🔥 Bonus Challenge (Optional)
+##  Bonus Challenge (Optional)
 
 Encrypt an image using AES-ECB and AES-CBC and visually compare the results.
 
 ---
 
-## ✅ Instructor Solution (Hidden)
+##  Instructor Solution (Hidden)
 
 - ECB file: `cipher1.bin`
 - CBC file: `cipher2.bin`
@@ -114,6 +114,6 @@ CBC uses chaining and an IV to hide patterns.
 
 ---
 
-## 📌 Key Takeaway
+##  Key Takeaway
 
 AES-ECB should never be used for sensitive data. AES-CBC (or AEAD modes like GCM) should be preferred.
