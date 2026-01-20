@@ -103,17 +103,6 @@ Encrypt an image using AES-ECB and AES-CBC and visually compare the results.
 
 ---
 
-##  Instructor Solution (Hidden)
-
-- ECB file: `cipher1.bin`
-- CBC file: `cipher2.bin`
-
-**Reason:**  
-ECB encrypts blocks independently, leaking patterns.  
-CBC uses chaining and an IV to hide patterns.
-
----
-
 ##  Key Takeaway
 
 AES-ECB should never be used for sensitive data. AES-CBC (or AEAD modes like GCM) should be preferred.
