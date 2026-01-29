@@ -289,7 +289,7 @@ cat session_msg.dec
 
 ---
 
-## (Optional) Python Extensions ( + real RSA)
+## (Optional) Python Extensions 
 
 ### Toy DH math demo (not production secure)
 Create `dh_toy.py`:
