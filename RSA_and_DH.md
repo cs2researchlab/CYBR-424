@@ -1,6 +1,5 @@
-# RSA & Diffie–Hellman (DH) Hands‑On Lab (Linux CLI + Python)
+# RSA & Diffie–Hellman (DH) Hands‑On Lab
 
-A **ready-to-run** lab using **Linux command line (OpenSSL)** and **Python** to practice:
 - **RSA**: key generation, encryption/decryption, signing/verification  
 - **Diffie–Hellman (DH)**: shared secret derivation, session key creation, symmetric encryption (AES)
 
