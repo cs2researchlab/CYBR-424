@@ -30,41 +30,91 @@ cd Public_crypto
 
 # Part A — RSA (CLI): Key Generation + Encrypt/Decrypt + Sign/Verify
 
-## A1) Generate RSA keys (private + public)
+## A1) Generate RSA Keys (Private + Public)
 
+### Step 1: Move into RSA working directory
 ```bash
 cd rsa
-
-# Generate 2048-bit RSA private key
-openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:2048 -out alice_rsa_priv.pem
-
-# Extract public key
-openssl pkey -in alice_rsa_priv.pem -pubout -out alice_rsa_pub.pem
-
-# Quick inspection (shows modulus size etc.)
-openssl pkey -in alice_rsa_priv.pem -text -noout | head -n 25
 ```
 
-RSA uses a **public key** to encrypt/verify and a **private key** to decrypt/sign.
+**What this does**
+- Changes the current directory to `rsa` where all RSA-related files are stored.
 
 ---
 
-## Commands Explanation 
+### Step 2: Generate a 2048-bit RSA Private Key
+```bash
+openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:2048 -out alice_rsa_priv.pem
+```
 
+**What this does**
+- Creates Aliceâ€™s **RSA private key**, used for **decryption and digital signing**.
+
+#### Command Explanation
 - **`openssl`**  
   Invokes the OpenSSL cryptographic toolkit.
-
 - **`genpkey`**  
   Generates a new **private key**.
-
 - **`-algorithm RSA`**  
-  Specifies that the key algorithm is **RSA**.
-
+  Specifies **RSA** as the cryptographic algorithm.
 - **`-pkeyopt rsa_keygen_bits:2048`**  
-  Sets the RSA key length to **2048 bits**, which is a commonly accepted secure standard.
-
+  Sets the key size to **2048 bits** (current security standard).
 - **`-out alice_rsa_priv.pem`**  
-  Saves the generated **RSA private key** to the file `alice_rsa_priv.pem` in PEM format.
+  Saves the private key in PEM format to `alice_rsa_priv.pem`.
+
+---
+
+### Step 3: Extract the RSA Public Key
+```bash
+openssl pkey -in alice_rsa_priv.pem -pubout -out alice_rsa_pub.pem
+```
+
+**What this does**
+- Derives Aliceâ€™s **public key**, which is shared with others for **encryption and signature verification**.
+
+#### Command Explanation
+- **`openssl`**  
+  Runs the OpenSSL tool.
+- **`pkey`**  
+  Processes public/private key files.
+- **`-in alice_rsa_priv.pem`**  
+  Reads the existing RSA private key.
+- **`-pubout`**  
+  Extracts the **public key** from the private key.
+- **`-out alice_rsa_pub.pem`**  
+  Writes the public key to `alice_rsa_pub.pem`.
+
+---
+
+### Step 4: Inspect RSA Key Parameters
+```bash
+openssl pkey -in alice_rsa_priv.pem -text -noout | head -n 25
+```
+
+**What this does**
+- Displays internal RSA parameters (modulus size, exponent) for inspection.
+
+#### Command Explanation
+- **`openssl pkey`**  
+  Reads and displays key information.
+- **`-in alice_rsa_priv.pem`**  
+  Specifies the RSA private key file.
+- **`-text`**  
+  Outputs key details in human-readable form.
+- **`-noout`**  
+  Suppresses raw key output.
+- **`| head -n 25`**  
+  Shows only the first 25 lines to keep output readable.
+
+---
+
+### Key Concept (Summary)
+- **Public key** â†’ encrypt data, verify signatures  
+- **Private key** â†’ decrypt data, create signatures  
+
+This asymmetric separation enables **confidentiality, integrity, and authentication**.
+
+---
 
 
 ## A2) Encrypt a short secret message with the public key (OAEP) and decrypt with private key
