@@ -137,13 +137,13 @@ openssl pkeyutl -encrypt -pubin -inkey alice_rsa_pub.pem   -in secret.txt -out s
 
 **Command meaning**
 - Uses RSA **public key** to encrypt the message.
-- `-encrypt→ performs encryption.
-- `-pubin→ indicates the input key is a public key.
-- `-inkey alice_rsa_pub.pem→ Alice'RSA public key.
-- `-in secret.txt→ plaintext input file.
-- `-out secret.enc→ encrypted output file.
-- `rsa_padding_mode:oaep→ enables secure OAEP padding.
-- `rsa_oaep_md:sha256→ uses SHA-256 within OAEP.
+- **`-encrypt`**→ performs encryption.
+- **`-pubin`**→ indicates the input key is a public key.
+- **`-inkey alice_rsa_pub.pem`**→ Alice'RSA public key.
+- **`-in secret.txt`**→ plaintext input file.
+- **`-out secret.enc`**→ encrypted output file.
+- **`rsa_padding_mode:oaep'** → enables secure OAEP padding.
+- **`rsa_oaep_md:sha256'** → uses SHA-256 within OAEP.
 
 ---
 
