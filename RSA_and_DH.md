@@ -120,7 +120,7 @@ Which statement best describes the role of RSA keys?
 
 A. Public key decrypts data  
 B. Private key is shared with everyone  
-C. **Public key encrypts, private key decrypts**  
+C. Public key encrypts, private key decrypts
 D. Both keys perform identical operations  
 
 ---
@@ -177,6 +177,15 @@ cat secret.dec
 **Command meaning**
 - Displays the decrypted plaintext message on the terminal.
 
+###  Understanding Check — RSA Encryption
+
+**Why is OAEP padding recommended for RSA encryption?**
+
+A. It makes RSA faster  
+B. It allows encrypting large files directly  
+C. It adds randomness and prevents cryptographic attacks 
+D. It replaces the need for AES  
+
 ---
 
 ### Key Concept
@@ -212,6 +221,15 @@ openssl dgst -sha256 -verify alice_rsa_pub.pem -signature contract.sig contract.
 
 Signatures detect tampering and prove who signed.
 
+### Understanding Check — RSA Signatures
+
+**What security property do RSA digital signatures primarily provide?**
+
+A. Confidentiality  
+B. Availability  
+C. Integrity and authentication
+D. Key exchange  
+
 ---
 
 # Part B — Diffie–Hellman (CLI): Derive a Shared Session Key
@@ -227,6 +245,17 @@ openssl dhparam -out dhparams.pem 2048
 
 DH needs agreed group parameters (prime/modulus + generator).
 
+### Understanding Check — DH Parameters
+
+**What is the purpose of Diffie–Hellman parameters?**
+
+A. Encrypt data directly  
+B. Define the mathematical group for key exchange
+C. Store private keys  
+D. Replace RSA  
+
+
+
 ---
 
 ## B2) Alice and Bob generate DH keypairs
@@ -240,6 +269,16 @@ openssl pkey -in alice_dh_priv.pem -pubout -out alice_dh_pub.pem
 openssl genpkey -paramfile dhparams.pem -out bob_dh_priv.pem
 openssl pkey -in bob_dh_priv.pem -pubout -out bob_dh_pub.pem
 ```
+### Understanding Check — DH Keys
+
+**Which key is never shared in Diffie–Hellman?**
+
+A. Group parameters  
+B. Public key  
+C. Private key
+D. Generator  
+
+
 
 ---
 
