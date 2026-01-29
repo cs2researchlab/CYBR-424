@@ -140,7 +140,7 @@ openssl pkeyutl -decrypt -inkey alice_rsa_priv.pem \
 cat secret.dec
 ```
 
-**What students learn:** Anyone can encrypt to Alice using her **public key**, but only Alice can decrypt using her **private key**.
+Anyone can encrypt to Alice using her **public key**, but only Alice can decrypt using her **private key**.
 
 ---
 
@@ -167,7 +167,7 @@ echo "Approve payment: $9000 to Vendor Z on Jan-31." > contract.txt
 openssl dgst -sha256 -verify alice_rsa_pub.pem -signature contract.sig contract.txt || echo "❌ Signature failed (tampered)"
 ```
 
-**What students learn:** Signatures detect tampering and prove who signed.
+Signatures detect tampering and prove who signed.
 
 ---
 
@@ -182,7 +182,7 @@ cd ~/crypto_lab/dh
 openssl dhparam -out dhparams.pem 2048
 ```
 
-**What students learn:** DH needs agreed group parameters (prime/modulus + generator).
+DH needs agreed group parameters (prime/modulus + generator).
 
 ---
 
@@ -219,7 +219,7 @@ openssl dgst -sha256 bob_shared.bin
 cmp -s alice_shared.bin bob_shared.bin && echo "✅ Shared secret matches"
 ```
 
-**What students learn:** DH lets Alice and Bob compute the **same secret** without sending it directly.
+DH lets Alice and Bob compute the **same secret** without sending it directly.
 
 ---
 
