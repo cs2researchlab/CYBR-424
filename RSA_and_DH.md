@@ -45,9 +45,27 @@ openssl pkey -in alice_rsa_priv.pem -pubout -out alice_rsa_pub.pem
 openssl pkey -in alice_rsa_priv.pem -text -noout | head -n 25
 ```
 
-** RSA uses a **public key** to encrypt/verify and a **private key** to decrypt/sign.
+RSA uses a **public key** to encrypt/verify and a **private key** to decrypt/sign.
 
 ---
+
+## Commands Explanation 
+
+- **`openssl`**  
+  Invokes the OpenSSL cryptographic toolkit.
+
+- **`genpkey`**  
+  Generates a new **private key**.
+
+- **`-algorithm RSA`**  
+  Specifies that the key algorithm is **RSA**.
+
+- **`-pkeyopt rsa_keygen_bits:2048`**  
+  Sets the RSA key length to **2048 bits**, which is a commonly accepted secure standard.
+
+- **`-out alice_rsa_priv.pem`**  
+  Saves the generated **RSA private key** to the file `alice_rsa_priv.pem` in PEM format.
+
 
 ## A2) Encrypt a short secret message with the public key (OAEP) and decrypt with private key
 
