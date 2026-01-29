@@ -70,7 +70,7 @@ openssl pkey -in alice_rsa_priv.pem -pubout -out alice_rsa_pub.pem
 ```
 
 **What this does**
-- Derives Aliceâ€™s **public key**, which is shared with others for **encryption and signature verification**.
+- Derives Alice's **public key**, which is shared with others for **encryption and signature verification**.
 
 #### Command Explanation
 - **`openssl`**  
@@ -109,8 +109,8 @@ openssl pkey -in alice_rsa_priv.pem -text -noout | head -n 25
 ---
 
 ### Key Concept (Summary)
-- **Public key** â†’ encrypt data, verify signatures  
-- **Private key** â†’ decrypt data, create signatures  
+- **Public key**  encrypt data, verify signatures  
+- **Private key** decrypt data, create signatures  
 
 This asymmetric separation enables **confidentiality, integrity, and authentication**.
 
