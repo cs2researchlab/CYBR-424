@@ -154,8 +154,8 @@ openssl pkeyutl -decrypt -inkey alice_rsa_priv.pem   -in secret.enc -out secret.
 
 **Command meaning**
 - Uses RSA **private key** to decrypt the ciphertext.
-- `-decrypt→ performs decryption.
-- `-inkey alice_rsa_priv.pem→ Alice's Private key (kept secret).
+- **-decrypt** → performs decryption.
+- **-inkey alice_rsa_priv.pem** → Alice's Private key (kept secret).
 - Padding options must match encryption settings.
 
 ---
