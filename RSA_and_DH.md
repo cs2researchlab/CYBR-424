@@ -22,8 +22,8 @@ python3 -m pip install --user cryptography
 
 ### 0.3 Create a workspace
 ```bash
-mkdir -p crypto_lab/{rsa,dh,msg}
-cd crypto_lab
+mkdir -p Public_crypto/{rsa,dh,msg}
+cd Public_crypto
 ```
 
 ---
@@ -33,7 +33,7 @@ cd crypto_lab
 ## A1) Generate RSA keys (private + public)
 
 ```bash
-cd ~/crypto_lab/rsa
+cd ~/Public_crypto/rsa
 
 # Generate 2048-bit RSA private key
 openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:2048 -out alice_rsa_priv.pem
