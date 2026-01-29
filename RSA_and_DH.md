@@ -38,7 +38,7 @@ cd rsa
 ```
 
 **What this does**
-- Changes the current directory to `rsa` where all RSA-related files are stored.
+- Changes the current directory to `rsa`, where all RSA-related files are stored.
 
 ---
 
@@ -48,7 +48,7 @@ openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:2048 -out alice_rsa_priv
 ```
 
 **What this does**
-- Creates Aliceâ€™s **RSA private key**, used for **decryption and digital signing**.
+- Creates Alice's **RSA private key**, used for **decryption and digital signing**.
 
 #### Command Explanation
 - **`openssl`**  
