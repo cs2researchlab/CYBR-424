@@ -117,32 +117,66 @@ This asymmetric separation enables **confidentiality, integrity, and authenticat
 ---
 
 
-## A2) Encrypt a short secret message with the public key (OAEP) and decrypt with private key
+## A2) RSA Encryption & Decryption (OAEP)
 
-### Create a message
+### Step 1: Create a secret message
 ```bash
 echo "Meet at 10:30PM. Room 204." > secret.txt
 ```
 
-### Encrypt using public key (OAEP padding — recommended)
+**Command meaning**
+- Creates a plaintext file `secret.txt` containing a confidential message.
+- This file will be encrypted using RSA.
+
+---
+
+### Step 2: Encrypt using Alice'public key (OAEP â€“ recommended)
 ```bash
-openssl pkeyutl -encrypt -pubin -inkey alice_rsa_pub.pem \
-  -in secret.txt -out secret.enc \
-  -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256
+openssl pkeyutl -encrypt -pubin -inkey alice_rsa_pub.pem   -in secret.txt -out secret.enc   -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256
 ```
 
-### Decrypt using private key
-```bash
-openssl pkeyutl -decrypt -inkey alice_rsa_priv.pem \
-  -in secret.enc -out secret.dec \
-  -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256
+**Command meaning**
+- Uses RSA **public key** to encrypt the message.
+- `-encrypt` â†’ performs encryption.
+- `-pubin` â†’ indicates the input key is a public key.
+- `-inkey alice_rsa_pub.pem` â†’ Alice'RSA public key.
+- `-in secret.txt` â†’ plaintext input file.
+- `-out secret.enc` â†’ encrypted output file.
+- `rsa_padding_mode:oaep` â†’ enables secure OAEP padding.
+- `rsa_oaep_md:sha256` â†’ uses SHA-256 within OAEP.
 
+---
+
+### Step 3: Decrypt using Alice'private key
+```bash
+openssl pkeyutl -decrypt -inkey alice_rsa_priv.pem   -in secret.enc -out secret.dec   -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256
+```
+
+**Command meaning**
+- Uses RSA **private key** to decrypt the ciphertext.
+- `-decrypt` â†’ performs decryption.
+- `-inkey alice_rsa_priv.pem` â†’ Alice'private key (kept secret).
+- Padding options must match encryption settings.
+
+---
+
+### Step 4: View decrypted message
+```bash
 cat secret.dec
 ```
 
-Anyone can encrypt to Alice using her **public key**, but only Alice can decrypt using her **private key**.
+**Command meaning**
+- Displays the decrypted plaintext message on the terminal.
 
 ---
+
+### Key Concept
+- **Anyone** can encrypt a message using Alice'**public key**.
+- **Only Alice** can decrypt it using her **private key**.
+- This guarantees **confidentiality** in asymmetric cryptography.
+
+---
+
 
 ## A3) Sign a file (integrity + authenticity) and verify with public key
 
