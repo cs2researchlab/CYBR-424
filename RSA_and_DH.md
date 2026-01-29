@@ -210,13 +210,13 @@ openssl dgst -sha256 -sign alice_rsa_priv.pem -out contract.sig contract.txt
 
 ### Verify (public key)
 ```bash
-openssl dgst -sha256 -verify alice_rsa_pub.pem -signature contract.sig contract.txt && echo "✅ Signature valid"
+openssl dgst -sha256 -verify alice_rsa_pub.pem -signature contract.sig contract.txt && echo "Signature valid"
 ```
 
 ### Try tampering
 ```bash
 echo "Approve payment: $9000 to Vendor Z on Jan-31." > contract.txt
-openssl dgst -sha256 -verify alice_rsa_pub.pem -signature contract.sig contract.txt || echo "❌ Signature failed (tampered)"
+openssl dgst -sha256 -verify alice_rsa_pub.pem -signature contract.sig contract.txt || echo "Signature failed (tampered)"
 ```
 
 Signatures detect tampering and prove who signed.
@@ -298,7 +298,7 @@ openssl pkeyutl -derive -inkey bob_dh_priv.pem -peerkey alice_dh_pub.pem -out bo
 ```bash
 openssl dgst -sha256 alice_shared.bin
 openssl dgst -sha256 bob_shared.bin
-cmp -s alice_shared.bin bob_shared.bin && echo "✅ Shared secret matches"
+cmp -s alice_shared.bin bob_shared.bin && echo "Shared secret matches"
 ```
 
 DH lets Alice and Bob compute the **same secret** without sending it directly.
@@ -418,9 +418,9 @@ try:
         ),
         hashes.SHA256(),
     )
-    print("Signature valid ✅")
+    print("Signature valid")
 except InvalidSignature:
-    print("Signature invalid ❌")
+    print("Signature invalid")
 ```
 
 Run:
