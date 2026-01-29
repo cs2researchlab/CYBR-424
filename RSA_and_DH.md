@@ -33,7 +33,7 @@ cd Public_crypto
 ## A1) Generate RSA keys (private + public)
 
 ```bash
-cd ~/Public_crypto/rsa
+cd rsa
 
 # Generate 2048-bit RSA private key
 openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:2048 -out alice_rsa_priv.pem
@@ -45,7 +45,7 @@ openssl pkey -in alice_rsa_priv.pem -pubout -out alice_rsa_pub.pem
 openssl pkey -in alice_rsa_priv.pem -text -noout | head -n 25
 ```
 
-**What students learn:** RSA uses a **public key** to encrypt/verify and a **private key** to decrypt/sign.
+** RSA uses a **public key** to encrypt/verify and a **private key** to decrypt/sign.
 
 ---
 
