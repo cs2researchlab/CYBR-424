@@ -114,6 +114,15 @@ openssl pkey -in alice_rsa_priv.pem -text -noout | head -n 25
 
 This asymmetric separation enables **confidentiality, integrity, and authentication**.
 
+### Question: Understanding the Role of RSA Keys
+
+Which statement best describes the role of RSA keys?
+
+A. Public key decrypts data  
+B. Private key is shared with everyone  
+C. **Public key encrypts, private key decrypts**  
+D. Both keys perform identical operations  
+
 ---
 
 
