@@ -130,20 +130,20 @@ echo "Meet at 10:30PM. Room 204." > secret.txt
 
 ---
 
-### Step 2: Encrypt using Alice'public key (OAEP â€“ recommended)
+### Step 2: Encrypt using Alice'public key (OAEP – recommended)
 ```bash
 openssl pkeyutl -encrypt -pubin -inkey alice_rsa_pub.pem   -in secret.txt -out secret.enc   -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256
 ```
 
 **Command meaning**
 - Uses RSA **public key** to encrypt the message.
-- `-encrypt` â†’ performs encryption.
-- `-pubin` â†’ indicates the input key is a public key.
-- `-inkey alice_rsa_pub.pem` â†’ Alice'RSA public key.
-- `-in secret.txt` â†’ plaintext input file.
-- `-out secret.enc` â†’ encrypted output file.
-- `rsa_padding_mode:oaep` â†’ enables secure OAEP padding.
-- `rsa_oaep_md:sha256` â†’ uses SHA-256 within OAEP.
+- `-encrypt→ performs encryption.
+- `-pubin→ indicates the input key is a public key.
+- `-inkey alice_rsa_pub.pem→ Alice'RSA public key.
+- `-in secret.txt→ plaintext input file.
+- `-out secret.enc→ encrypted output file.
+- `rsa_padding_mode:oaep→ enables secure OAEP padding.
+- `rsa_oaep_md:sha256→ uses SHA-256 within OAEP.
 
 ---
 
@@ -154,8 +154,8 @@ openssl pkeyutl -decrypt -inkey alice_rsa_priv.pem   -in secret.enc -out secret.
 
 **Command meaning**
 - Uses RSA **private key** to decrypt the ciphertext.
-- `-decrypt` â†’ performs decryption.
-- `-inkey alice_rsa_priv.pem` â†’ Alice'private key (kept secret).
+- `-decrypt→ performs decryption.
+- `-inkey alice_rsa_priv.pem→ Alice's Private key (kept secret).
 - Padding options must match encryption settings.
 
 ---
