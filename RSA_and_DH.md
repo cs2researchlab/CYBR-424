@@ -289,7 +289,7 @@ cat session_msg.dec
 
 ---
 
-## (Optional) Python Extensions (if you want students to see the math + real RSA)
+## (Optional) Python Extensions ( + real RSA)
 
 ### Toy DH math demo (not production secure)
 Create `dh_toy.py`:
