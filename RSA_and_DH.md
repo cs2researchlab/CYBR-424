@@ -339,7 +339,7 @@ cat session_msg.dec
 
 ## (Optional) Python Extensions 
 
-### Toy DH math demo (not production secure)
+### Toy DH math demo
 Create `dh_toy.py`:
 ```python
 # dh_toy.py (TOY DEMO - not production secure)
@@ -435,19 +435,5 @@ python3 rsa_real.py
 # Remove generated secrets after grading
 rm -f secret.enc secret.dec contract.sig alice_shared.bin bob_shared.bin session_msg.enc session_msg.dec session_key.hex iv.hex
 ```
-
----
-
-## Notes for GitHub
-Suggested repo structure:
-```
-crypto_lab/
-  RSA_and_DH.md
-  rsa/
-  dh/
-  msg/
-```
-
----
 
 **End of lab.**
